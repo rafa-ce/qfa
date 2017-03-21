@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using QFA.Models;
-using QFA.TheMovieDB;
+using QFA.TheMovieDb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +21,9 @@ namespace QFA.Repositorys
 
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri(TheMovieDBConfig.UrlBase);
+                client.BaseAddress = new Uri(TheMovieDbConfig.UrlBase);
 
-                string requestUri = String.Format("genre/movie/list?api_key={0}&language={1}", TheMovieDBConfig.ApiKey, TheMovieDBConfig.DefaultLanguage);
+                string requestUri = String.Format("genre/movie/list?api_key={0}&language={1}", TheMovieDbConfig.ApiKey, TheMovieDbConfig.DefaultLanguage);
 
                 HttpResponseMessage response = await client.GetAsync(requestUri);
 
