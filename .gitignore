@@ -241,4 +241,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-/QFA/QFA/QFA/TheMovieDB/TheMovieDBConfig.cs
+/QFA/QFA/QFA/TheMovieDb/TheMovieDbConfig.cs
