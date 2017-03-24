@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QFA.Views.GenresPage"
+             xmlns:VM="clr-namespace:QFA.ViewModels"
+             Title="Escolher Gênero do Filme">
+
+    <ContentPage.BindingContext>
+        <VM:GenresViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Spacing="0">
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+        <ListView x:Name="ListViewGenres" ItemsSource="{Binding Genres}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

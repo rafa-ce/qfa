@@ -11,9 +11,9 @@ namespace QFA
     {
         public App()
         {
-            InitializeComponent();
+            var page = new Views.GenresPage();
 
-            MainPage = new QFA.MainPage();
+            MainPage = new NavigationPage(page);
         }
 
         protected override void OnStart()
