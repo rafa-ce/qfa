@@ -36,5 +36,28 @@ namespace QFA.Repositorys
 
             return genres.OrderBy(g => g.Name).ToList();
         }
+
+        public async Task<List<Movie>> ListMovieByGenreId(int id)
+        {
+            List<Movie> movies = new List<Movie>();
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(TheMovieDbConfig.UrlBase);
+
+                string requestUri = String.Format("genre/{0}/movie?api_key={1}&language={2}&&include_adult=false&sort_by=created_at.asc", 
+                    id, TheMovieDbConfig.ApiKey, TheMovieDbConfig.DefaultLanguage);
+
+                HttpResponseMessage response = await client.GetAsync(requestUri);
+
+                var responseJson = await response.Content.ReadAsStringAsync();
+                JObject obj = JObject.Parse(responseJson);
+
+                var values = obj["movies"];
+                movies = JsonConvert.DeserializeObject<List<Movie>>(values.ToString());
+            }
+
+            return movies;
+        }
     }
 }

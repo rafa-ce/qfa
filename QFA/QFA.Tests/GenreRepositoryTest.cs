@@ -11,8 +11,8 @@ namespace QFA.Tests
         [TestMethod]
         public void GetGenresAsync()
         {
-            var Repository = new GenreRepository();
-            var items = Repository.GenreMovieListAsync().Result;
+            var repository = new GenreRepository();
+            var items = repository.GenreMovieListAsync().Result;
 
             Assert.AreEqual(19, items.Count);
         }
