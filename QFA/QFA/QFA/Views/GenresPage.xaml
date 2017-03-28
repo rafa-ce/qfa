@@ -11,7 +11,7 @@
 
     <StackLayout Spacing="0">
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
-        <ListView x:Name="ListViewGenres" ItemsSource="{Binding Genres}" >
+        <ListView x:Name="ListViewGenres" ItemsSource="{Binding Genres}" ItemSelected="GenreSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Text="{Binding Name}" />

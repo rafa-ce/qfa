@@ -1,4 +1,5 @@
-﻿using QFA.Repositorys;
+﻿using QFA.Models;
+using QFA.Repositorys;
 using QFA.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,13 @@ namespace QFA.Views
         public GenresPage()
         {
             InitializeComponent();
+        }
+
+        private async void GenreSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Genre genre = (Genre)e.SelectedItem;
+            
+            await Navigation.PushAsync(new MoviesPage());
         }
     }
 }
